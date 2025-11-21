@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  oci-app-bcp:
+    image: bproenca/oci-app-bcp:v6
+    restart: always
+    volumes:
+      - "/<path>/oci_wallet:/opt/oci_wallet"
+    ports:
+      - "8484:8080"
+    logging:
+      options:
+        max-size: "50m"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 100M
+    environment:
+      - JAVA_OPTS=-Xmx50M
+      - SPRING_DATASOURCE_URL=<url>
+      - SPRING_DATASOURCE_USERNAME=<user>
+      - SPRING_DATASOURCE_PASSWORD=<pass>
+      - APP_TIME_DB=60000
