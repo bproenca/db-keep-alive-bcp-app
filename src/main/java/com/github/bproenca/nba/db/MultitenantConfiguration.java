@@ -50,12 +50,12 @@ public class MultitenantConfiguration {
         ds.setAutoCommit(true);
         ds.setConnectionTimeout(30000);
         ds.setIdleTimeout(300000);
-        ds.setMinimumIdle(4);
+        ds.setMinimumIdle(1);
         ds.setInitializationFailTimeout(1);
         ds.setIsolateInternalQueries(false);
         ds.setLeakDetectionThreshold(600000);
         ds.setMaxLifetime(1800000);
-        ds.setMaximumPoolSize(7);
+        ds.setMaximumPoolSize(2);
         ds.setReadOnly(false);
         ds.setRegisterMbeans(false);
         ds.setValidationTimeout(5000);

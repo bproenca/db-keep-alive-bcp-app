@@ -1,5 +1,5 @@
 #!/bin/bash
-tag="v1"
+tag="v3"
 
 echo "Working directory: $(pwd)"
 
