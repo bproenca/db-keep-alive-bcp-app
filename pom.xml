@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.bproenca</groupId>
 	<artifactId>db-keep-alive-bcp-app</artifactId>
-	<version>3.0</version>
+	<version>4.0</version>
 	<name>db-keep-alive-bcp-app</name>
 	<description>DB Keep Alive App</description>
 	<properties>
