@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.bproenca.nba.repo.TenantRepo;
 
 @RestController
-public class MyController {
+public class DataController {
     
     @Autowired
     private TenantRepo tenantRepo;
 
-    private Logger log = LoggerFactory.getLogger(MyController.class);
+    private Logger log = LoggerFactory.getLogger(DataController.class);
 
     @GetMapping("/data/tenant/{tenant}")
 	public List<Map<String, Object>> data(@PathVariable String tenant) {
@@ -32,12 +32,6 @@ public class MyController {
 	public List<Map<String, Object>> nls(@PathVariable String tenant) {
         log.info(">> [GET] /nls/tenant/{} at {}", tenant, LocalDateTime.now());
         return tenantRepo.getNLS(tenant);
-	}
-
-    @GetMapping("/ping")
-	public String ping() {
-        log.info(">> [GET] /ping at {}", LocalDateTime.now());
-        return "pong: " + LocalTime.now();
-	}    
+	} 
     
 }

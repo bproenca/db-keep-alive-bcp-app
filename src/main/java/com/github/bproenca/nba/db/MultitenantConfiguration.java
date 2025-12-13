@@ -1,6 +1,7 @@
 package com.github.bproenca.nba.db;
 
 import java.util.Map;
+import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +60,10 @@ public class MultitenantConfiguration {
         ds.setReadOnly(false);
         ds.setRegisterMbeans(false);
         ds.setValidationTimeout(5000);
+        
+        Properties dsProps = new Properties();
+        dsProps.setProperty("v$session.program", "db-keep-alive-bcp-app#" + ds.getPoolName());
+        ds.setDataSourceProperties(dsProps);
 
         StringBuilder initSQL = new StringBuilder();
         initSQL

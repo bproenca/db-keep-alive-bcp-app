@@ -25,7 +25,9 @@ public class ScheduledTask {
 
     @Scheduled(fixedRateString = "${myapp.fixedRate}")
     public void insertData() {
+        log.info(">> Scheduled task triggered");
         for (Map<String, String> tenantProperties : tenantDataSourceProperties.getDatasource()) {
+            log.info(">> Task pool: {}", tenantProperties.get("poolName"));
             if (!"NA".equals(tenantProperties.get("poolName"))) {
                 tenantRepo.insertData(tenantProperties.get("poolName"));
             }
